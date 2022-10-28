@@ -29,6 +29,7 @@ public class Cafe extends Building {
         this.nCoffeeOunces += size;
         this.nSugarPackets += nSugarPackets;
         this.nCreams += nCreams;
+        this.nCups ++;
         System.out.println("Successfully restocked the Cafe.");
     }
     

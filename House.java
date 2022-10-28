@@ -42,9 +42,6 @@ public class House extends Building {
     House wilson = new House("Wilson", "Northampton MA 0106", 4,false);
     wilson.moveIn("Erin Riley");
     wilson.moveIn("Jenny Yang");
-    wilson.moveIn("Elizabeth Peters");
-
-    
 
   }
 
