@@ -44,7 +44,7 @@ public class Library extends Building {
       // Use a for-each loop to iterate through the Hashtable as found in the following article: https://www.geeksforgeeks.org/hashtable-in-java/
       int i = 1;
       for (Map.Entry<String, Boolean> book : collection.entrySet()) {
-        System.out.println(i + ". --- Title: " + book.getKey() + "\n" + "   Available?: " +  book.getValue());
+        System.out.println(i + ". --- Title: " + book.getKey() + "\n" + "       Available?: " +  book.getValue());
         i++;
       }
     }
