@@ -1,4 +1,5 @@
 import java.util.Hashtable;
+import java.util.Map;
 
 /* This is a stub for the Library class */
 public class Library extends Building {
@@ -31,6 +32,23 @@ public class Library extends Building {
       System.out.println("Succesfully returned the title " + title + " to " + this.getName() + ". Thank you!");
     }
 
+    public boolean containsTitle(String title) {
+      return collection.containsKey(title);
+    }
+
+    public boolean isAvailable(String title) {
+      return collection.get(title);
+    }
+
+    public void printCollection() {
+      // Use a for-each loop to iterate through the Hashtable as found in the following article: https://www.geeksforgeeks.org/hashtable-in-java/
+      int i = 1;
+      for (Map.Entry<String, Boolean> book : collection.entrySet()) {
+        System.out.println(i + ". --- Title: " + book.getKey() + "\n" + "   Available?: " +  book.getValue());
+        i++;
+      }
+    }
+
     public static void main(String[] args) {
       Library neilson = new Library("Neilson", "7 Neilson Drive, Northampton MA 01063", 4);
       neilson.addTitle("Pride and Prejudice by Jane Austen");
@@ -40,6 +58,7 @@ public class Library extends Building {
       neilson.addTitle("The House on Mango Street by Sandra Cisneros");
       neilson.checkOut("The House on Mango Street by Sandra Cisneros");
       neilson.returnBook("Pride and Prejudice by Jane Austen");
+      neilson.printCollection();
     }
   
   }
