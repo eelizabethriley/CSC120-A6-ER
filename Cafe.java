@@ -15,23 +15,26 @@ public class Cafe extends Building {
     }
 
     public void sellCoffee(int size, int nSugarPackets, int nCreams) {
-        if (nCoffeeOunces > this.nCoffeeOunces || nSugarPackets > this.nSugarPackets || nCreams > this.nCreams || this.nCups == 0) {
-            this.restock(nCoffeeOunces, nSugarPackets, nCreams);
+        if (size > this.nCoffeeOunces || nSugarPackets > this.nSugarPackets || nCreams > this.nCreams || this.nCups == 0) {
+            this.restock(size, nSugarPackets, nCreams);
         }
         this.nCoffeeOunces -= size;
         this.nSugarPackets -= nSugarPackets;
-        this.nCreams --;
-        System.out.println(size + " oz coffee with " + nSugarPackets + " sugar(s) and " + nCreams + " cream(s) has been sold.");
+        this.nCreams -= nCreams;
+        this.nCups --;
+        System.out.println(size + " oz coffee with " + nSugarPackets + " sugar(s) and " + nCreams + " cream(s) has been sold. Thank you!");
     }
     
-    private void restock(int nCoffeeOunces, int nSugarPackets, int nCreams) {
-        this.nCoffeeOunces += nCoffeeOunces;
+    private void restock(int size, int nSugarPackets, int nCreams) {
+        this.nCoffeeOunces += size;
         this.nSugarPackets += nSugarPackets;
         this.nCreams += nCreams;
+        System.out.println("Successfully restocked the Cafe.");
     }
     
     public static void main(String[] args) {
-        new Cafe("Campus Center Cafe", "100 Elm St, Northampton, MA 01063", 3, 145, 30, 25, 20);
+        Cafe ccCafe = new Cafe("Campus Center Cafe", "100 Elm St, Northampton, MA 01063", 3, 50, 10, 20, 20);
+        ccCafe.sellCoffee(12, 1, 2);
     }
     
 }
