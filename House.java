@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 
 /* This is a stub for the House class */
+/** A child class of class Building with an array list of strings representing the residents of the house. The attribute "hasDiningRoom" indicates 
+ * whether or not this house has a dining room.
+*/
 public class House extends Building {
 
   private ArrayList<String> residents;
@@ -24,15 +27,29 @@ public class House extends Building {
     return residents.size();
   }
 
+  /**
+   * Adds the specified person's name to the House's array list of residents.
+   * @param name the person moving into the house
+   */
   public void moveIn(String name) {
     residents.add(name);
   }
 
+  /**
+   * Removes the specified person's name from the House's array lsit of residents.
+   * @param name the person moving out of the house
+   * @return the name of the individual leaving the house
+   */
   public String moveOut(String name) {
     residents.remove(name);
     return name;
   }
 
+  /**
+   * Indicates whether or not a specified person does or does not live in this house.
+   * @param person the name of a specified person 
+   * @return true if the resident lives in this house, and false if they do not
+   */
   public boolean isResident(String person) {
     return residents.contains(person);
   }
